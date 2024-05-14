@@ -70,7 +70,6 @@ namespace InternJohan.Dev.App.Controllers
         {
             // Hämta den inloggade användarens ID från HttpContext
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-
             if (userIdClaim == null)
             {
                 return Unauthorized("Du måste vara inloggad för att skapa ett SportEvent.");

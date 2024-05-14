@@ -92,5 +92,6 @@ namespace InternJohan.Dev.API.Services
         {
             return await _userRepository.FindByUsername(username);
         }
+
     }
 }

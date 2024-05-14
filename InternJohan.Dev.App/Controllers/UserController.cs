@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using InternJohan.Dev.Infrastructure.Models;
 using InternJohan.Dev.API.Services;
 using InternJohan.Dev.Infrastructure.ViewModel;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using InternJohan.Dev.Infrastructure.Repository;
 
 namespace InternJohan.Dev.API.Controllers
 {
@@ -103,6 +106,19 @@ namespace InternJohan.Dev.API.Controllers
             }
 
             return NoContent();
+        }
+        [HttpGet("id")]
+        public async Task<IActionResult> GetUserIdByUsername(string username)
+        {
+            // Hämta användar-ID från databasen baserat på användarnamnet
+            var user = await _userService.FindUserByUsername(username);
+
+            if (user == null)
+            {
+                return NotFound("Användaren hittades inte.");
+            }
+
+            return Ok( user.Id );
         }
     }
 }

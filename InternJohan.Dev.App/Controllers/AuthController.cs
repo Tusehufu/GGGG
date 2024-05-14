@@ -42,6 +42,7 @@ namespace InternJohan.Dev.API.Controllers
             // Skapa en JWT-token om användaren är giltig
             var token = GenerateJwtToken(user);
 
+
             // Returnera tokenen i svaret
             return Ok(new { Token = token });
         }
@@ -68,7 +69,9 @@ namespace InternJohan.Dev.API.Controllers
                 expires: DateTime.Now.AddMinutes(30), // Justera utgångstiden enligt behov
                 signingCredentials: creds
             );
-
+            // Logga JWT-tokenen till konsolen för att verifiera dess innehåll
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            Console.WriteLine("JWT-token:", tokenString);
             // Returnera tokenen som sträng
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

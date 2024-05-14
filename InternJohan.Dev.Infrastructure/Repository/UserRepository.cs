@@ -126,5 +126,6 @@ namespace InternJohan.Dev.Infrastructure.Repository
             // Returnera den första matchande användaren
             return userRoleMapping.FirstOrDefault();
         }
+
     }
 }

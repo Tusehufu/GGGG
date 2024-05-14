@@ -10,7 +10,7 @@
                     <p>Är du säker på att du vill radera detta evenemang?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger" @click="confirmDelete">Radera</button>
+                    <button class="btn btn-danger" @click="confirmDelete(eventId)">Radera</button>
                     <button class="btn btn-secondary" @click="closeModal">Avbryt</button>
                 </div>
             </div>
@@ -19,38 +19,49 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
-
-export default defineComponent({
-    name: 'ConfirmDeleteModal',
-    props: {
-        isVisible: {
-            type: Boolean,
-            required: true,
+    import { defineComponent, PropType } from 'vue';
+    import axios from 'axios';
+    export default defineComponent({
+        name: 'ConfirmDeleteModal',
+        props: {
+            isVisible: {
+                type: Boolean,
+                required: true,
+            },
+            eventId: {
+                type: Number,
+                required: true,
+            },
         },
-        eventId: {
-            type: Number,
-            required: true,
+        emits: ['confirm', 'cancel'],
+        setup(props, { emit }) {
+            // Funktion för att bekräfta borttagning
+            const confirmDelete = async(event: object) => {
+                // Hämta JWT-token från din autentiseringskälla (t.ex. lokal lagring)
+                const token = localStorage.getItem('jwtToken');
+                console.log(event);
+                // Skapa en HTTP-begäran med autentiseringsuppgifter (JWT-token)
+                const response = await axios.delete(`https://localhost:7056/api/SportEvent/${event}`,
+
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`, // Skicka JWT-token som en del av Authorization-headers
+                        },
+                    });
+                emit('confirm', props.eventId);
+                window.location.reload();
+            };
+
+            // Funktion för att stänga modalen
+            const closeModal = () => {
+                emit('cancel');
+            };
+            return {
+                confirmDelete,
+                closeModal,
+            };
         },
-    },
-    emits: ['confirm', 'cancel'],
-    setup(props, { emit }) {
-        // Funktion för att bekräfta borttagning
-        const confirmDelete = () => {
-            emit('confirm', props.eventId);
-        };
-
-        // Funktion för att stänga modalen
-        const closeModal = () => {
-            emit('cancel');
-        };
-
-        return {
-            confirmDelete,
-            closeModal,
-        };
-    },
-});
+    });
 </script>
 
 <style>

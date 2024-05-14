@@ -57,72 +57,16 @@
       "PackagePath": "staticwebassets\\clientapp\\src\\assets\\ugglan.mp4"
     },
     {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\BoardAdmin.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\BoardAdmin.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\BoardModerator.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\BoardModerator.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\BoardUser.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\BoardUser.vue"
-    },
-    {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\ConfirmDeleteModal.vue",
       "PackagePath": "staticwebassets\\clientapp\\src\\components\\ConfirmDeleteModal.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\DxColorBox.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\DxColorBox.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\DxSlider.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\DxSlider.vue"
     },
     {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\EditEventModal.vue",
       "PackagePath": "staticwebassets\\clientapp\\src\\components\\EditEventModal.vue"
     },
     {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\EjsSlider.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\EjsSlider.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnAccordion.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnAccordion.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnAccordionItem.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnAccordionItem.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnColorPicker.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnColorPicker.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnInputGroup.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnInputGroup.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnInputGroupText.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnInputGroupText.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnRangeSlider.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnRangeSlider.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\KnSliderField.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\KnSliderField.vue"
-    },
-    {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\Login.vue",
       "PackagePath": "staticwebassets\\clientapp\\src\\components\\Login.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\Profile.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\components\\Profile.vue"
     },
     {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\components\\Register.vue",
@@ -139,22 +83,6 @@
     {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\shims-vue.d.ts",
       "PackagePath": "staticwebassets\\clientapp\\src\\shims-vue.d.ts"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\store\\auth.module.ts",
-      "PackagePath": "staticwebassets\\clientapp\\src\\store\\auth.module.ts"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\store\\index.ts",
-      "PackagePath": "staticwebassets\\clientapp\\src\\store\\index.ts"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\types\\OnRangeSliderChangedEvent.ts",
-      "PackagePath": "staticwebassets\\clientapp\\src\\types\\OnRangeSliderChangedEvent.ts"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\types\\RangeSliderValue.ts",
-      "PackagePath": "staticwebassets\\clientapp\\src\\types\\RangeSliderValue.ts"
     },
     {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\HomeView.vue",
@@ -175,26 +103,6 @@
     {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\forum\\ForumView.vue",
       "PackagePath": "staticwebassets\\clientapp\\src\\views\\forum\\ForumView.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\movie\\CreateMovieView.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\views\\movie\\CreateMovieView.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\movie\\DeleteMovieView.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\views\\movie\\DeleteMovieView.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\movie\\MovieList.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\views\\movie\\MovieList.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\movie\\SingleMovieView.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\views\\movie\\SingleMovieView.vue"
-    },
-    {
-      "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\movie\\UpdateMovieView.vue",
-      "PackagePath": "staticwebassets\\clientapp\\src\\views\\movie\\UpdateMovieView.vue"
     },
     {
       "Id": "C:\\Users\\johan\\OneDrive\\Skrivbord\\Sportsällskapet\\KEYnet\\InternJohan.Dev.App\\wwwroot\\clientapp\\src\\views\\sports\\SoccerView.vue",

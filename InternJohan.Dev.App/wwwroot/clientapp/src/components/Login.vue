@@ -1,7 +1,8 @@
 ﻿<template>
     <div class="col-md-12">
         <div class="card card-container">
-            <Form @submit="handleLogin" :validation-schema="schema">
+            <!-- Visa inloggningsformulär om användaren inte är inloggad -->
+            <Form v-if="!isLoggedIn" @submit="handleLogin" :validation-schema="schema">
                 <div class="form-group">
                     <label for="username">Användarnamn</label>
                     <Field name="username" v-model="userCredentials.username" type="text" class="form-control" />
@@ -26,12 +27,20 @@
                     </div>
                 </div>
             </Form>
+
+            <!-- Visa inloggad text och knappar om användaren är inloggad -->
+            <div v-else>
+                <p>Du är inloggad</p>
+                <button @click="handleLogout" class="btn btn-danger">Logga ut</button>
+                <!-- Visa bekräftelsemeddelande om användaren har loggats ut -->
+                <p v-if="loggedOut" class="text-success">Du har loggats ut</p>
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import { defineComponent, ref } from 'vue';
+    import { defineComponent, ref, computed } from 'vue';
     import axios from 'axios';
     import { Form, Field, ErrorMessage } from 'vee-validate';
     import * as yup from 'yup';
@@ -51,6 +60,7 @@
 
             const loading = ref(false);
             const errorMessage = ref('');
+            const loggedOut = ref(false); // Ref för att hålla koll på om användaren har loggats ut
 
             const schema = yup.object().shape({
                 username: yup.string().required('Användarnamn krävs'),
@@ -65,18 +75,30 @@
                     // Logga användaruppgifterna som skickas till API:et
                     console.log('Användaruppgifter som skickas till API:', userCredentials.value);
 
-                    // Gör API-anropet
-                    const response = await axios.post('https://localhost:7056/api/auth/login', userCredentials.value);
+                    // Gör API-anropet för att logga in
+                    const loginResponse = await axios.post('https://localhost:7056/api/auth/login', userCredentials.value);
 
                     // Hantera svar från servern
-                    if (response.status === 200) {
-                        console.log('Inloggning lyckades:', response.data);
+                    if (loginResponse.status === 200) {
+                        console.log('Inloggning lyckades:', loginResponse.data);
 
-                        // Återställa formuläret och omdirigera användaren
-                        userCredentials.value = {
-                            username: '',
-                            password: '',
-                        };
+                        // Spara JWT-token i localStorage
+                        const token = loginResponse.data.token;
+                        localStorage.setItem('jwtToken', token);
+
+                        // Hämta användar-ID baserat på användarnamnet
+                        const username = userCredentials.value.username;
+                        const userIdResponse = await axios.get(`https://localhost:7056/api/users/id?username=${username}`);
+
+                        if (userIdResponse.status === 200) {
+                            const userId = userIdResponse.data;
+                            console.log('Användar-ID hämtat:', userId);
+                            localStorage.setItem('userId', userId);
+                        } else {
+                            throw new Error('Kunde inte hämta användar-ID.');
+                        }
+
+                        window.location.reload();
                     } else {
                         // Om svaret inte är 200, kasta ett fel
                         throw new Error('Inloggning misslyckades');
@@ -89,12 +111,32 @@
                 }
             };
 
+            const handleLogout = () => {
+                // Ta bort JWT-token och användar-ID från localStorage för att logga ut användaren
+                localStorage.removeItem('jwtToken');
+                localStorage.removeItem('userId');
+                // Sätt loggedOut till true för att visa bekräftelsemeddelandet
+                loggedOut.value = true;
+                // Återställ användaruppgifterna
+                userCredentials.value = {
+                    username: '',
+                    password: '',
+                };
+                window.location.reload();
+            };
+
+            // Kolla om användaren är inloggad baserat på userId i local storage
+            const isLoggedIn = computed(() => !!localStorage.getItem('userId'));
+
             return {
                 userCredentials,
                 loading,
                 errorMessage,
                 schema,
                 handleLogin,
+                handleLogout,
+                isLoggedIn,
+                loggedOut,
             };
         },
     });

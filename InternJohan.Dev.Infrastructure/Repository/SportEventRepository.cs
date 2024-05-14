@@ -24,8 +24,14 @@ namespace InternJohan.Dev.Infrastructure.Repository
             using (var connection = new SqlConnection(_databaseSettings.DefaultConnection))
                 items = await connection.QueryAsync<SportEvent>(@"
                     SELECT 
-                        se.*, 
-                        u.* 
+                        se.Id,
+                        se.Sport,
+                        se.NeededParticipants,
+                        se.Participants,
+                        se.DateTime,
+                        se.Location,
+                        se.UserHostId,
+                        u.Username
                     FROM 
                         SportEvents se 
                     JOIN 
@@ -53,8 +59,9 @@ namespace InternJohan.Dev.Infrastructure.Repository
 
         public async Task<bool> Insert(SportEvent sportEvent)
         {
-            try
-            {
+            //try
+            //{
+
                 using var connection = new SqlConnection(_databaseSettings.DefaultConnection);
                 sportEvent.Id = await connection.ExecuteScalarAsync<int>(@"
                     DECLARE @InsertedSportEvent TABLE (Id INT);
@@ -63,7 +70,7 @@ namespace InternJohan.Dev.Infrastructure.Repository
                         Sport,
                         NeededParticipants,
                         Participants,
-                        FormattedDateTime,
+                        DateTime,
                         Location,
                         UserHostId
                     )
@@ -89,11 +96,11 @@ namespace InternJohan.Dev.Infrastructure.Repository
                 });
 
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
 
         public async Task<bool> Update(SportEvent sportEvent)

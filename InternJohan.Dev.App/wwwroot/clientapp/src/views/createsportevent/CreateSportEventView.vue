@@ -24,9 +24,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Skapa evenemang</button>
         </form>
-        <!-- Visa meddelandet när evenemanget har skapats -->
-        <div v-if="successMessage" class="alert alert-success mt-3">
-            {{ successMessage }}
+        <!-- Visa felmeddelandet om något går fel -->
+        <div v-if="errorMessage" class="alert alert-danger mt-3">
+            {{ errorMessage }}
         </div>
     </div>
 </template>
@@ -38,6 +38,9 @@
     export default defineComponent({
         name: 'CreateSportEventView',
         setup() {
+            // Definiera en ref för att lagra användarens ID
+            const userId = localStorage.getItem('userId');
+
             // Definiera ett objekt för att lagra information om det nya sportevenemanget
             const newEvent = ref({
                 sport: '',
@@ -45,36 +48,30 @@
                 participants: 0,
                 dateTime: '',
                 location: '',
+                userHostId: userId ? parseInt(userId) : null, // Kontrollera om userId är definierad och konvertera det till ett nummer
             });
 
-            // Skapa en ref för att lagra framgångsmeddelandet
-            const successMessage = ref('');
+            // Lägg till en ref för att lagra felmeddelandet
+            const errorMessage = ref('');
 
             // Funktion för att skicka formuläret
             const submitForm = async () => {
-                try {
-                    // Skicka POST-förfrågan till API:et
-                    const response = await axios.post('https://localhost:7056/api/SportEvent', newEvent.value);
+                    // Hämta JWT-token från din autentiseringskälla (t.ex. lokal lagring)
+                    const token = localStorage.getItem('jwtToken');
 
-                    // Visa meddelandet om framgång
-                    successMessage.value = 'Evenemanget har skapats framgångsrikt!';
-
-                    // Rensa formuläret
-                    newEvent.value = {
-                        sport: '',
-                        neededParticipants: 0,
-                        participants: 0,
-                        dateTime: '',
-                        location: '',
-                    };
-                } catch (error) {
-                    console.error('Fel vid skapandet av evenemang:', error);
-                }
+                    // Skapa en HTTP-begäran med autentiseringsuppgifter (JWT-token)
+                    const response = await axios.post('https://localhost:7056/api/SportEvent', {
+                        ...newEvent.value,
+                        userHostId: userId ? parseInt(userId) : null,
+                    }, {
+                        headers: {
+                            Authorization: `Bearer ${token}`, // Skicka JWT-token som en del av Authorization-headers
+                        },
+                    });
             };
 
             return {
                 newEvent,
-                successMessage,
                 submitForm,
             };
         },
